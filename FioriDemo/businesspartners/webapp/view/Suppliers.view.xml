@@ -6,8 +6,5 @@
                 </items>
             </List>
         </content>
-    <headerContent>
-        <PullToRefresh id="refresh0"/>
-    </headerContent>
     </Page>
 </mvc:View>
