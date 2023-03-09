@@ -1,7 +1,7 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="sap.btp.sampleapp.controller.Sampleui5app" displayBlock="true">
     <Page id="page" title="First UI5 app">
     <content>
-        <Label text="Hello message!" width="100%"/>
+        <Label text="Welcome !" width="100%"/>
     </content>
     </Page>
 </mvc:View>
