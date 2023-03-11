@@ -1,4 +1,4 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ns.businesspartners.controller.Suppliers" displayBlock="true"><Page id="page" title="Business partner list info">
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ns.businesspartners.controller.Suppliers" displayBlock="true"><Page id="page" title="Business Partner List">
         <content>
             <List noDataText="Drop list items here" items="{/BusinessPartnerSet}" id="list0">
                 <items>
@@ -6,8 +6,5 @@
                 </items>
             </List>
         </content>
-    <headerContent>
-        <PullToRefresh id="refresh0"/>
-    </headerContent>
     </Page>
 </mvc:View>
