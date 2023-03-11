@@ -1,4 +1,4 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ns.businesspartners.controller.Suppliers" displayBlock="true"><Page id="page" title="Business Partner List">
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ns.businesspartners.controller.Suppliers" displayBlock="true"><Page id="page" title="Business Partner List App">
         <content>
             <List noDataText="Drop list items here" items="{/BusinessPartnerSet}" id="list0">
                 <items>
