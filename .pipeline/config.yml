@@ -1,6 +1,5 @@
-# Project configuration
 general:
-  buildTool: "mta"     
+  buildTool: "mta"
 
 service: 
   buildToolVersion: "MBTJ11N14"         
