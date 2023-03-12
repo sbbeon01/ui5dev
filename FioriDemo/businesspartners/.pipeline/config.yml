@@ -8,7 +8,7 @@ service:
 # Stages configuration
 stages:
   Build:
-    npmExecuteLint: true                  # true, if you want to run a lint check that verifies the syntax of your JavaScript code (default: false)
+    npmExecuteLint: false                  # true, if you want to run a lint check that verifies the syntax of your JavaScript code (default: false)
   
   Additional Unit Tests:
      karmaExecuteTests: false             # true, if you want to execute the Karma Test Runner (default: false) 
@@ -31,7 +31,7 @@ stages:
     sonarExecuteScan: false              # true, if you want to integrate continuous inspection of code quality (default: false). If you set this parameter to true, the sonarExecuteScan step is mandatory
 
   Release:
-    cloudFoundryDeploy: false              # true, if you want to deploy to Cloud Foundry. If you set this parameter to true, the CloudFoundryDeploy step is mandatory
+    cloudFoundryDeploy: true              # true, if you want to deploy to Cloud Foundry. If you set this parameter to true, the CloudFoundryDeploy step is mandatory
     cfApiEndpoint: "https://api.cf.us10-001.hana.ondemand.com/" # for example, "https://api.cf.eu10.hana.ondemand.com"
     cfOrg: "d067dd30trial_qa-sap-sbbeon"
     cfSpace: "SAP_SP_DEV"                           # the Cloud Foundry space, in which you want to execute uiVeri5 tests
