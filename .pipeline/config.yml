@@ -1,0 +1,69 @@
+# Project configuration
+general:
+  buildTool: "mta"     
+
+service: 
+  buildToolVersion: "MBTJ11N14"         
+
+# Stages configuration
+stages:
+  Build:
+    npmExecuteLint: false                  # true, if you want to run a lint check that verifies the syntax of your JavaScript code (default: false)
+  
+  Additional Unit Tests:
+     karmaExecuteTests: false             # true, if you want to execute the Karma Test Runner (default: false) 
+     npmExecuteScripts: false              # true, if you want to execute test scripts that are defined in step npmExecuteScripts (default: false)
+
+  Malware Scan: 
+     malwareExecuteScan: true             # true, if you want your pipeline to execute malware scanning (default: false) 
+
+  Acceptance:
+    cloudFoundryDeploy: true                                                # true, if you want to deploy to Cloud Foundry acceptance space. If you set this parameter to true, the cloudFoundryDeploy step is mandatory
+    cfApiEndpoint: "https://api.cf.us10-001.hana.ondemand.com" # for example, "https://api.cf.eu10.hana.ondemand.com"
+    cfOrg: "d067dd30trial"
+    cfSpace: "SAP_SP_DEV"                           # the Cloud Foundry space, in which you want to execute uiVeri5 tests
+    cfAppName: "nsbusinesspartners"
+    cfCredentialsId: "skcfcred"
+    deployType: "standard"
+    npmExecuteEndToEndTests: true                                          # true, if you want to execute end-to-end acceptance tests (default: false)
+
+  Compliance:
+    sonarExecuteScan: false              # true, if you want to integrate continuous inspection of code quality (default: false). If you set this parameter to true, the sonarExecuteScan step is mandatory
+
+  Release:
+    cloudFoundryDeploy: true              # true, if you want to deploy to Cloud Foundry. If you set this parameter to true, the CloudFoundryDeploy step is mandatory
+    cfApiEndpoint: "https://api.cf.us10-001.hana.ondemand.com" # for example, "https://api.cf.eu10.hana.ondemand.com"
+    cfOrg: "d067dd30trial"
+    cfSpace: "SAP_SP_DEV"                           # the Cloud Foundry space, in which you want to execute uiVeri5 tests
+    cfAppName: "nsbusinesspartners"
+    cfCredentialsId: "skcfcred"
+    deployType: "standard"
+    tmsUpload: true                       # true if you want to upload your artifact to SAP Cloud Transport Management. If you set this parameter to true, the tmsUpload step is mandatory
+
+# Steps configuration
+  steps: 
+# Init stage step 
+  artifactPrepareVersion: 
+    versioningType: "cloud_noTag"         # or "cloud", if you want your pipeline to write Git tags. In this case, you need to add the gitHttpsCredentialsId parameter
+
+  npmExecuteLint: 
+    failOnError: false                    # true, if you want your pipeline to fail, if the lint check reveals any errors
+
+# Test stage step 
+  #npmExecuteScripts:                      # only relevant, if you set the npmExecuteScripts parameter in the Additional Unit Tests stage to true
+  #  runScripts: 
+  #    - "test"                            # list of script names in your package.json file to be executed
+
+# Acceptance stage steps 
+# cloudFoundryDeploy: false         # true, if you want to deploy to Cloud Foundry test space (default: false)
+#    npmExecuteEndToEndTests:          # only relevant, if you set the npmExecuteEndToEndTests parameter in the Accepance stage to true
+#    runScript: "<wdio>"             # enter the name of the test script to be executed (you can find it in the scripts section of your package.json file) (default: "wdio")                      
+#    credentialsId: "<ID OF YOUR CREDENTIAL TO AUTHENTICATE AGAINST THE TEST APPLICATION>"  # tip: avoid using a technical user credential and create a special test user instead 
+
+# Release stage steps 
+  cloudFoundryDeploy:                                                                      # only relevant, if you set the cloudFoundryDeploy parameter in the Release stage to true 
+    mtaDeployParameters: "-f --version-rule ALL"
+
+  tmsUpload:                                                                               # only relevant, if you set the tmsUpload parameter in the Release stage to true
+    nodeName: "qa"
+    credentialsId: "skctm01"
