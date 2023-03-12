@@ -19,10 +19,10 @@ stages:
 
   Acceptance:
     cloudFoundryDeploy: true                                                # true, if you want to deploy to Cloud Foundry acceptance space. If you set this parameter to true, the cloudFoundryDeploy step is mandatory
-    cfApiEndpoint: "https://api.cf.us10-001.hana.ondemand.com/" # for example, "https://api.cf.eu10.hana.ondemand.com"
-    cfOrg: "d067dd30trial_qa-sap-sbbeon"
+    cfApiEndpoint: "https://api.cf.us10-001.hana.ondemand.com" # for example, "https://api.cf.eu10.hana.ondemand.com"
+    cfOrg: "d067dd30trial"
     cfSpace: "SAP_SP_DEV"                           # the Cloud Foundry space, in which you want to execute uiVeri5 tests
-    cfAppName: "businesspartners"
+    cfAppName: "nsbusinesspartners"
     cfCredentialsId: "skcfcred"
     deployType: "standard"
     npmExecuteEndToEndTests: true                                          # true, if you want to execute end-to-end acceptance tests (default: false)
@@ -32,10 +32,10 @@ stages:
 
   Release:
     cloudFoundryDeploy: true              # true, if you want to deploy to Cloud Foundry. If you set this parameter to true, the CloudFoundryDeploy step is mandatory
-    cfApiEndpoint: "https://api.cf.us10-001.hana.ondemand.com/" # for example, "https://api.cf.eu10.hana.ondemand.com"
-    cfOrg: "d067dd30trial_qa-sap-sbbeon"
+    cfApiEndpoint: "https://api.cf.us10-001.hana.ondemand.com" # for example, "https://api.cf.eu10.hana.ondemand.com"
+    cfOrg: "d067dd30trial"
     cfSpace: "SAP_SP_DEV"                           # the Cloud Foundry space, in which you want to execute uiVeri5 tests
-    cfAppName: "businesspartners"
+    cfAppName: "nsbusinesspartners"
     cfCredentialsId: "skcfcred"
     deployType: "standard"
     tmsUpload: true                       # true if you want to upload your artifact to SAP Cloud Transport Management. If you set this parameter to true, the tmsUpload step is mandatory
