@@ -26,9 +26,6 @@ stages:
     deployType: "standard"
     npmExecuteEndToEndTests: true                                          # true, if you want to execute end-to-end acceptance tests (default: false)
 
-  Compliance:
-    sonarExecuteScan: false              # true, if you want to integrate continuous inspection of code quality (default: false). If you set this parameter to true, the sonarExecuteScan step is mandatory
-
   Release:
     cloudFoundryDeploy: true              # true, if you want to deploy to Cloud Foundry. If you set this parameter to true, the CloudFoundryDeploy step is mandatory
     cfApiEndpoint: "https://api.cf.us10-001.hana.ondemand.com" # for example, "https://api.cf.eu10.hana.ondemand.com"
